@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract LogicExample {
+    uint public age;
+    bool public isRegistered;
+
+    // Function to set user's age
+    function setAge(uint _age) public {
+        age = _age;
+    }
+
+    // Function to register only if age >= 18
+    function register() public {
+        require(age >= 18, "You must be 18 or older to register");
+        isRegistered = true;
+    }
+
+    // Function to check if user is adult
+    function isAdult() public view returns (bool) {
+        if (age >= 18) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
